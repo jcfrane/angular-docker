@@ -1,0 +1,13 @@
+version:  '3.7'
+services:
+  spa:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: dev
+    ports:
+      - '91:80'
+    volumes:
+      - ./:/app
+    environment:
+      - API_URL=localhost:82

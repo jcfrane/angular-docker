@@ -1,0 +1,13 @@
+version:  '3.7'
+services:
+  spa:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: prod
+    ports:
+      - '91:80'
+    volumes:
+      - ./docker/default.conf:/etc/nginx/conf.d/default.conf
+    environment:
+       - SPA_API_URL=localhost:82
